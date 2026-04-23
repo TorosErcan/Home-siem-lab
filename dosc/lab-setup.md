@@ -25,6 +25,9 @@ Setting up the virtual machine environment for the home SIEM lab.
 | Wazuh-Server | 4GB | 50GB | NAT + siem-lab |
 | Windows-Agent | 2GB | 40GB | NAT + siem-lab |
 
+### 3. Setup of internal network IP address - Server VM 
+Network connectivity : netplan, IP a , IP ping
+
 ## Screenshots
 1. <img width="1163" height="728" alt="VMs built" src="https://github.com/user-attachments/assets/0cdb9e6a-8a32-4e30-85cd-d3e14f99d723" />
 2. <img width="1272" height="862" alt="No IP found for internal network in ubuntu setup" src="https://github.com/user-attachments/assets/7a32db28-596f-4905-9156-30df4102e273" />
