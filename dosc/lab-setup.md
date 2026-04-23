@@ -33,6 +33,8 @@ Setting up the virtual machine environment for the home SIEM lab.
 5. <img width="1272" height="862" alt="Finding ip addresses for adapters" src="https://github.com/user-attachments/assets/c4a8f35e-4428-43bd-899a-e81a51bd3fe7" />
 6. <img width="840" height="1050" alt="Netplan config IP file" src="https://github.com/user-attachments/assets/8e73afa5-cb58-4a88-bdb9-90021852fa45" />
 7. <img width="840" height="1050" alt="Static IP set for internal network " src="https://github.com/user-attachments/assets/d9b7d140-663e-4b94-87bd-0a5c3b836321" />
+8. <img width="840" height="1050" alt="IPs confirmed" src="https://github.com/user-attachments/assets/3bb44e63-7b7a-4466-ad6e-b97412d55b2d" />
+
 
 
 ## Issues Encountered
