@@ -28,6 +28,16 @@ Setting up the virtual machine environment for the home SIEM lab.
 ### 3. Setup of internal network IP address - Server VM 
 Network connectivity : netplan, IP a , IP ping
 
+### 4. Wazuh installation
+Deployed the Wazuh SIEM platform on the Ubuntu server VM:
+bash
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash wazuh-install.sh -a -i
+Then confirmed Wazuh services are running: sudo systemctl status wazuh-manager
+
+
+Connecting to the Wazuh Siem:
+
+
 ## Screenshots
 1. <img width="1163" height="728" alt="VMs built" src="https://github.com/user-attachments/assets/0cdb9e6a-8a32-4e30-85cd-d3e14f99d723" />
 2. <img width="1272" height="862" alt="No IP found for internal network in ubuntu setup" src="https://github.com/user-attachments/assets/7a32db28-596f-4905-9156-30df4102e273" />
@@ -39,7 +49,6 @@ Network connectivity : netplan, IP a , IP ping
 8. <img width="840" height="1050" alt="IPs confirmed" src="https://github.com/user-attachments/assets/3bb44e63-7b7a-4466-ad6e-b97412d55b2d" />
 
 
-
 ## Issues Encountered
 No IP address for internal network:
 Set up 2 seperate networks on the VMs: NAT - for connecting to the internet for downloading of Wazuh server(Wazuh-server VM) and host(Windows10-Target VM).
@@ -47,5 +56,7 @@ Needed to configure the internal network to set an IP as wont be assigned automa
 Opened a Netplan file "sudo nano /etc/netplan/00-installer-config.yaml" and "sudo netplan apply"
 set to static IP so its known exactly where target sends logs to, creating a relaible connection
 
+Couldnt connect to Wazuh SIEM:
+The IP we allocated for the wazuh server is within the internal network so only VMs on that netowrk can reach each other - the host machine sits outside of the network. So a host only adapter was needed for them to communicate and for the SIEM to be accessed from the host. 
 
 
