@@ -11,7 +11,8 @@ Environment: VirtualBox on Windows
 
 ## Documentation Index
 1. Lab Setup(docs/lab-setup.md)
-2. 2. Wazuh installation(docs/wazuh-installation.md)
+2. Wazuh Installation(docs/wazuh-installation.md)
+3. Enrolling Windows Agent(docs/enrolling-windows-agent.md)
 
 ##Skills Demonstrated 
 - SIEM deployment and configuration
