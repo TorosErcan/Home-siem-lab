@@ -6,36 +6,35 @@ Setting up the virtual machine environment for the home SIEM lab.
 ## Environment
 - Host OS: [Windows 11]
 - Virtualisation: VirtualBox
-- VMs: Wazuh Server (Ubuntu 22.04), Windows 10 Agent
+-  Host RAM: 16GB | Storage available: 94GB
+
+## VMs Created
+### Wazuh Server
+- OS: Ubuntu 22.04 LTS Server
+- RAM: 4GB | CPUs: 2 | Disk: 50GB (dynamically allocated)
+- Adapter 1: NAT (internet access for updates and installs)
+- Adapter 2: Internal Network — `siem-lab`
+
+
+### Windows10 Agent
+- OS: Windows 10
+- RAM: 2GB | CPUs: 2 | Disk: 40GB (dynamically allocated)
+- Adapter 1: Internal Network — `siem-lab`
+- Adapter 2: NAT (internet access for agent install)
+
+
 
 ## Network Design
-- Internal Network name: `siem-lab`
-- Wazuh Server IP: `192.168.100.10`
-- Windows Agent IP: `192.168.100.20`
+| Wazuh Server | enp0s3 | 10.0.2.15/24 (DHCP) | Internet/updates via NAT |
+| Wazuh Server | enp0s8 | 192.168.100.10/24 | SIEM internal communications |
+| Windows Agent | — | 192.168.100.20/24 | Agent to SIEM communications |
 
-## Steps Completed
 
-### 1. Downloaded ISOs
-- Ubuntu 22.04 LTS Server
-- Windows 10
 
-### 2. Created VMs
-| VM | RAM | Disk | Network |
-|---|---|---|---|
-| Wazuh-Server | 4GB | 50GB | NAT + siem-lab |
-| Windows-Agent | 2GB | 40GB | NAT + siem-lab |
 
-### 3. Setup of internal network IP address - Server VM 
+### Testing network connectivity 
 Network connectivity : netplan, IP a , IP ping
 
-### 4. Wazuh installation
-Deployed the Wazuh SIEM platform on the Ubuntu server VM:
-bash
-curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash wazuh-install.sh -a -i
-Then confirmed Wazuh services are running: sudo systemctl status wazuh-manager
-
-
-Connecting to the Wazuh Siem:
 
 
 ## Screenshots
@@ -51,12 +50,13 @@ Connecting to the Wazuh Siem:
 
 ## Issues Encountered
 No IP address for internal network:
-Set up 2 seperate networks on the VMs: NAT - for connecting to the internet for downloading of Wazuh server(Wazuh-server VM) and host(Windows10-Target VM).
+Set up 2 seperate networks on the VMs:
+NAT - for connecting to the internet for downloading of Wazuh server(Wazuh-server VM) and host(Windows10-Target VM).
+Internal network - for Vms to communicate with each other.
 Needed to configure the internal network to set an IP as wont be assigned automatically due to no router to perform DHCP.
 Opened a Netplan file "sudo nano /etc/netplan/00-installer-config.yaml" and "sudo netplan apply"
-set to static IP so its known exactly where target sends logs to, creating a relaible connection
+set to static IP so its known exactly where target sends logs to, creating a relaible connection.
 
-Couldnt connect to Wazuh SIEM:
-The IP we allocated for the wazuh server is within the internal network so only VMs on that netowrk can reach each other - the host machine sits outside of the network. So a host only adapter was needed for them to communicate and for the SIEM to be accessed from the host. 
+
 
 
