@@ -14,6 +14,7 @@ Setting up the virtual machine environment for the home SIEM lab.
 - RAM: 4GB | CPUs: 2 | Disk: 50GB (dynamically allocated)
 - Adapter 1: NAT (internet access for updates and installs)
 - Adapter 2: Internal Network — `siem-lab`
+- Adapter 3: Host-only 
 
 
 ### Windows10 Agent
@@ -27,6 +28,7 @@ Setting up the virtual machine environment for the home SIEM lab.
 ## Network Design
 | Wazuh Server | enp0s3 | 10.0.2.15/24 (DHCP) | Internet/updates via NAT |
 | Wazuh Server | enp0s8 | 192.168.100.10/24 | SIEM internal communications |
+| Wazuh Server | enp0s9 | 192.168.56.111/24 (DHCP) | Host machine dashboard access |
 | Windows Agent | — | 192.168.100.20/24 | Agent to SIEM communications |
 
 
