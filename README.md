@@ -10,7 +10,8 @@ Environment: VirtualBox on Windows
 ##Lab Architecture
 
 ## Documentation Index
-1. Lab Setup 
+1. Lab Setup(docs/lab-setup.md)
+2. 2. Wazuh installation(docs/wazuh-installation.md)
 
 ##Skills Demonstrated 
 - SIEM deployment and configuration
