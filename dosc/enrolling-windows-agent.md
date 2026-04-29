@@ -11,7 +11,9 @@ A software installed on endpoints that:
 - Ships all data back to the Wazuh manager over the internal network
 
 ## Environment
-Agent
+Agent machine: Windows 10 Pro VM
+Agent IP: 192.168.100.20
+Wazuh manager IP: 192.168.100.10
 
 ## Setup
 
@@ -40,12 +42,16 @@ Invoke-WebRequest downloads directly to the path specified
 
 2. msiexec.exe /i "C:\Users\user\Downloads\wazuh-agent-4.7.0-1.msi" WAZUH_MANAGER="192.168.100.10" WAZUH_AGENT_NAME="Windows-Target" /l*v "C:\Users\user\Downloads\install.log"
 
-Then NAT START WazuhSvc
+Then: NAT START WazuhSvc
 
-Navigate to the Wazuh dashboard on the host machine and the Agent will appear as active
+Navigate to the Wazuh SIEM dashboard on the host machine and the Agent will appear as active
 
 
 ## Issues Encountered
 
 
 ## Screenshots
+<img width="1026" height="843" alt="Static IP configuration" src="https://github.com/user-attachments/assets/4cee5684-ed40-4333-942e-7829b67897bf" />
+<img width="1026" height="843" alt="Connectivity verification" src="https://github.com/user-attachments/assets/cbbab38a-b328-4b0b-863c-132b8de8163f" />
+<img width="1026" height="759" alt="Agent installation" src="https://github.com/user-attachments/assets/57cccf0a-59d4-47ac-b630-4c5417bca474" />
+<img width="1624" height="546" alt="Wazuh SIEM dashboard" src="https://github.com/user-attachments/assets/b772cd85-10ea-4a96-b9fa-49d0a150d325" />
