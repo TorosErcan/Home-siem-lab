@@ -13,6 +13,7 @@ Environment: VirtualBox on Windows
 1. Lab Setup(docs/lab-setup.md)
 2. Wazuh Installation(docs/wazuh-installation.md)
 3. Enrolling Windows Agent(docs/enrolling-windows-agent.md)
+4. Log Ingestion & Rules(docs/log-ingestion.md)
 
 ##Skills Demonstrated 
 - SIEM deployment and configuration
