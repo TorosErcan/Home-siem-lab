@@ -23,6 +23,8 @@ Answer: Event ID 4625
 ### Step 3 — Find the Parent SID in Wazuh
 #### Method A - Dashboard
 Trigger the event on the Windows VM and proceed to the Wazuh dashboard > security events and find the rule ID; thats the parent SID.
+<img width="1654" height="75" alt="rule ID" src="https://github.com/user-attachments/assets/519a0b90-790a-40d2-8ea1-05695c01a05d" />
+
 
 #### Method B - Grep
 - bash sudo grep -r "4625" /var/ossec/ruleset/rules/
@@ -88,6 +90,7 @@ xml
   </rule>
 </group>
 
+<img width="1308" height="898" alt="Custom rule" src="https://github.com/user-attachments/assets/bde397d8-fd51-4245-8ecd-fa4e0f317f5b" />
 
 
 #### Additional Rule Conditions
@@ -129,3 +132,4 @@ sudo systemctl restart wazuh-manager
 ### Step 9 — Test and verify
 Deliberatly trigger the condition 
 Verify security event in Wazuh dashboard
+<img width="1628" height="71" alt="Custom rule in wazuh dashbaord" src="https://github.com/user-attachments/assets/26b47139-7570-40af-83cd-c8bd3bdd0876" />
